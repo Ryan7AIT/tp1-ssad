@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tp1 ssad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="main.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <h1 class="font-medium text-2xl text-center py-4"><a href="/">Welcome to our Project</a></h1>
+
+    <nav class="flex justify-between w-3/5 m-auto">
+        <div class="crypto  ">
+            <a class="btn" href="./crypto.html">Cryptage/ decryptage</a>
+        </div>
+
+        <div class="crypto btn">
+            <a class="btn" href="./mdps.html">Mot de passe</a>
+        </div>
+
+        <div class="crypto btn">
+            <a class="btn" href="./stg.html">Steganographie</a>
+        </div>
+
+        <div class="crypto btn">
+            <a class="btn" href="./attaques.html">Attaques</a>
+        </div>
+
+    </nav>
+
+    <div class="crypto-contenu w-3/5 m-auto py-6 my-10">
+
+        <h2>Cryptage/ Decriptage</h2>
+
+
+        <form class="py-6" >
+            <div class="relative z-0 mb-6 w-full group">
+                <input  type="text" name="searchTxt" id="searchTxt" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                <label for="searchTxt" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter a text to crypt</label>
+            </div>
+
+            <label for="methods" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Choose a methode</label>
+                <select id="methods" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full   p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="1"> Miroir</option>
+                    <option value="2">Affine</option>
+                    <option value="3">Decalage</option>
+                    <option value="4">Cesar</option>
+                </select>
+
+                <button type="button" class="p-4 m-4 bg-blue-500 text-white" id="sumbiteCrypt"> Crypter</button>
+        </form>
+
+
+
+    </div>
+
+</body>
+</html>
