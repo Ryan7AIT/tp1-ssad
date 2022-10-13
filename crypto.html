@@ -32,25 +32,67 @@
 
     <div class="crypto-contenu w-3/5 m-auto py-6 my-10">
 
-        <h2>Cryptage/ Decriptage</h2>
+        <h2 class="text-center font-bold text-blue-500">Cryptage/ Decriptage</h2>
+
+        <div class="flex justify-start space-x-8 ">
+            <form class="py-6 w-1/2"  >
+                <div class="relative z-0 mb-6 w-full group">
+                    <input  type="text" name="searchTxt" id="searchTxt" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="searchTxt" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter a text to crypt</label>
+                </div>
+    
+                <label for="methods" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Choose a methode</label>
+                    <select onchange="yesnoCheck();" id="methods" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full   p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="0"> Miroir</option>
+                        <option value="1">Affine</option>
+                        <option value="2">Decalage</option>
+                        <option value="3">Cesar</option>
+                    </select>
 
 
-        <form class="py-6" >
-            <div class="relative z-0 mb-6 w-full group">
-                <input  type="text" name="searchTxt" id="searchTxt" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                <label for="searchTxt" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter a text to crypt</label>
-            </div>
+                <div id="valueOfaAndb" class="grid md:grid-cols-2 md:gap-6 mt-4 hidden">
+                    <div class="relative z-0 mb-6 w-full group">
+                        <input type="text" name="valueOfa" id="valueOfa" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="valueOfa" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">value of a</label>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <input type="text" name="valueOfb" id="valueOfb" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="valueOfb" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Value of b</label>
+                    </div>
+                </div>
 
-            <label for="methods" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Choose a methode</label>
-                <select id="methods" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full   p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="1"> Miroir</option>
-                    <option value="2">Affine</option>
-                    <option value="3">Decalage</option>
-                    <option value="4">Cesar</option>
-                </select>
+                <div id="valueOfn" class="relative z-0 mb-6 w-full group hidden">
+                    <input type="text" name="valueOfn" id="valueOfn" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="valueOfn" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">value of n</label>
+                </div>
+    
+                    <button type="button" class="p-4 m-4 bg-blue-500 text-white" id="sumbiteCrypt"> Crypter</button>
+            </form>
 
-                <button type="button" class="p-4 m-4 bg-blue-500 text-white" id="sumbiteCrypt"> Crypter</button>
-        </form>
+
+            <form class="py-6 w-1/2" >
+                <div class="relative z-0 mb-6 w-full group">
+                    <input  readonly  type="text" name="resultTxt" id="resultTxt" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="resultTxt" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">the cypted text is </label>
+                </div>
+
+                <div class="relative z-0 mb-6 w-full group">
+                    <input  readonly  type="text" name="resultTxt" id="resultTxt" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="resultTxt" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">the decypted message is </label>
+                </div>
+    
+                    <button type="button" class="p-4 m-4 bg-blue-500 text-white" id="sumbiteDeCrypt"> De Crypter</button>
+            </form>
+
+
+
+        </div>
+
+
+
+
+
+
 
 
 
