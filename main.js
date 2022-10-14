@@ -152,10 +152,15 @@ function cesar(message,k) {
     }
 
     for(let n=0; n< message.length; n++) {
-        c1 = Math.abs( parseInt(dict[message[n]]) + parseInt(k))
+        if(message[n] == " ") {
+            c = c + " "
+        }else {
+            c1 = Math.abs( parseInt(dict[message[n]]) + parseInt(k))
+            c2 = c1 % 26
+            c =  c + alphabet[c2]
+        }
         
-        c2 = c1 % 26
-        c =  c + alphabet[c2]
+        
     }
 
     return c
@@ -185,15 +190,24 @@ function dcesar(message,k) {
     c=[];
     alphabet = ["a","b","c","d","e","f","g","h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r","s","t","u","v","w","x","y","z"];
 
+    alphabet2 = alphabet.reverse();
+
     for(let i=0; i< alphabet.length; i++) {
-        dict[alphabet[i]] = i
+        dict[alphabet2[i]] = i
 
     }
 
     for(let n=0; n< message.length; n++) {
-        c1 = Math.abs( parseInt(dict[message[n]]) - parseInt(k))
-        c2 = c1 % 26
-        c =  c + alphabet[c2]
+
+        if(message[n] == " ") {
+            c = c + " "
+        } else {
+            c1 = Math.abs( parseInt(dict[message[n]]) + parseInt(k))
+            c2 = c1 % 26
+            c =  c + alphabet2[c2]
+
+        }
+
     }
 
     return c
