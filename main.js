@@ -114,7 +114,7 @@ sdc.addEventListener('click', function() {
     } else if(inpl.value == 2) {
         decryptedMessage =  ddecalage(inp.value);
     } else {
-        decryptedMessage =  dcesar(inp.value,inpN.value);
+        decryptedMessage =  dcesar(result.value,inpN.value);
 
     }
 
@@ -131,7 +131,6 @@ function miroir(message) {
 }
 
 function affine(message,a,b) {
-    console.log(a);
     return "this is the resulat of crypting " +  message + " using affine| a and b:  " + a + "," + b
 }
 
@@ -139,8 +138,28 @@ function decalage(message) {
     return "this is the resulat of crypting " +  message + " using DECALAGE  method"
 }
 
-function cesar(message,n) {
-    return "this is the resulat of crypting " +  message + " using MIROIR method using a range of : " + n
+function cesar(message,k) {
+
+    dict = {}
+    c1 = 0;
+    c2 = 0;
+    c=[];
+    alphabet = ["a","b","c","d","e","f","g","h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r","s","t","u","v","w","x","y","z"];
+
+    for(let i=0; i< alphabet.length; i++) {
+        dict[alphabet[i]] = i
+
+    }
+
+    for(let n=0; n< message.length; n++) {
+        c1 = Math.abs( parseInt(dict[message[n]]) + parseInt(k))
+        
+        c2 = c1 % 26
+        c =  c + alphabet[c2]
+    }
+
+    return c
+
 }
 
 
@@ -150,7 +169,6 @@ function dmiroir(message) {
 }
 
 function daffine(message,a,b) {
-    console.log(a);
     return "this is the resulat of decrypting " +  message + " using affine| a and b:  " + a + "," + b
 }
 
@@ -158,6 +176,26 @@ function ddecalage(message) {
     return "this is the resulat of decrypting " +  message + " using DECALAGE  method"
 }
 
-function dcesar(message,n) {
-    return "this is the resulat of decrypting " +  message + " using MIROIR method using a range of : " + n
+function dcesar(message,k) {
+    
+
+    dict = {}
+    c1 = 0;
+    c2 = 0;
+    c=[];
+    alphabet = ["a","b","c","d","e","f","g","h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r","s","t","u","v","w","x","y","z"];
+
+    for(let i=0; i< alphabet.length; i++) {
+        dict[alphabet[i]] = i
+
+    }
+
+    for(let n=0; n< message.length; n++) {
+        c1 = Math.abs( parseInt(dict[message[n]]) - parseInt(k))
+        c2 = c1 % 26
+        c =  c + alphabet[c2]
+    }
+
+    return c
+
 }
