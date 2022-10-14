@@ -74,14 +74,21 @@ sc.addEventListener('click', function() {
 
     if(inpl.value == 0) {
         decryptedMessage =  miroir(inp.value);
+        originalWord.value = ""
         
 
     }else if(inpl.value == 1) {
         decryptedMessage =  affine(inp.value,inpA.value,inpB.value);
+        originalWord.value = ""
+
     } else if(inpl.value == 2) {
         decryptedMessage =  decalage(inp.value);
+        originalWord.value = ""
+        
     } else {
         decryptedMessage =  cesar(inp.value,inpN.value);
+        originalWord.value = ""
+
 
     }
 
