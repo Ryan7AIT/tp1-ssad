@@ -82,7 +82,7 @@ sc.addEventListener('click', function() {
         originalWord.value = ""
 
     } else if(inpl.value == 2) {
-        decryptedMessage =  decalage(inp.value);
+        decryptedMessage =  decalageD(inp.value);
         originalWord.value = ""
         
     } else {
@@ -106,13 +106,13 @@ sdc.addEventListener('click', function() {
     // console.log(inp.value);
 
     if(inpl.value == 0) {
-        decryptedMessage =  dmiroir(inp.value);
+        decryptedMessage =  dmiroir(result.value);
         
 
     }else if(inpl.value == 1) {
-        decryptedMessage =  daffine(inp.value,inpA.value,inpB.value);
+        decryptedMessage =  daffine(result.value,inpA.value,inpB.value);
     } else if(inpl.value == 2) {
-        decryptedMessage =  ddecalage(inp.value);
+        decryptedMessage =  decalageG(result.value);
     } else {
         decryptedMessage =  dcesar(result.value,inpN.value);
 
@@ -134,8 +134,31 @@ function affine(message,a,b) {
     return "this is the resulat of crypting " +  message + " using affine| a and b:  " + a + "," + b
 }
 
-function decalage(message) {
-    return "this is the resulat of crypting " +  message + " using DECALAGE  method"
+function decalageD(message) {
+    dict = {}
+    c1 = 0;
+    c2 = 0;
+    c=[];
+    alphabet = ["a","b","c","d","e","f","g","h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r","s","t","u","v","w","x","y","z"];
+
+    for(let i=0; i< alphabet.length; i++) {
+        dict[alphabet[i]] = i
+
+    }
+
+    for(let n=0; n< message.length; n++) {
+        if(message[n] == " ") {
+            c = c + " "
+        }else {
+            c1 = Math.abs( parseInt(dict[message[n]]) + parseInt(1))
+            c2 = c1 % 26
+            c =  c + alphabet[c2]
+        }
+        
+        
+    }
+
+    return c
 }
 
 function cesar(message,k) {
@@ -177,8 +200,34 @@ function daffine(message,a,b) {
     return "this is the resulat of decrypting " +  message + " using affine| a and b:  " + a + "," + b
 }
 
-function ddecalage(message) {
-    return "this is the resulat of decrypting " +  message + " using DECALAGE  method"
+function decalageG(message) {
+    dict = {}
+    c1 = 0;
+    c2 = 0;
+    c=[];
+    alphabet = ["a","b","c","d","e","f","g","h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r","s","t","u","v","w","x","y","z"];
+
+    alphabet2 = alphabet.reverse();
+
+    for(let i=0; i< alphabet.length; i++) {
+        dict[alphabet2[i]] = i
+
+    }
+
+    for(let n=0; n< message.length; n++) {
+
+        if(message[n] == " ") {
+            c = c + " "
+        } else {
+            c1 = Math.abs( parseInt(dict[message[n]]) + parseInt(1))
+            c2 = c1 % 26
+            c =  c + alphabet2[c2]
+
+        }
+
+    }
+
+    return c
 }
 
 function dcesar(message,k) {
